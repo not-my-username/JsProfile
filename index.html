@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="./mirror.js"></script>
+    <script src="streaks.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="10" height="10" style="width:100px;height:100px;  image-rendering: crisp-edges;"></canvas>
+    <input type="text" id="name" placeholder="Name" oninput="updateLive ? gen() : false">
+    <button onclick="streaks();gen = streaks" >Streaks</button>
+    <label for="mirrorButton">Mirror: </label>
+    <input type="checkbox" id="mirrorButton" oninput="$(this).is(':checked') ? mirror() : gen();">
+    <label for="liveButton">Update Live:</label>
+    <input type="checkbox" id="liveButton" oninput="updateLive = $(this).is(':checked')">
+</body>
+</html>
