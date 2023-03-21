@@ -1,4 +1,5 @@
-function streaks() {
+offset = 0
+function gen() {
     size = 10
     name = $("#name").val()
     x = 0
@@ -25,10 +26,15 @@ function streaks() {
 
     for (let x = 0; x < size; x++) {
         for (let y = 0; y < size; y++) {
-            if (asciiName[(x+y)%l] % 3 == 0) {
+            if (asciiName[((x+y) + offset)%l] % 3 == 0) {
+                ctx.fillStyle = `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`
+                ctx.fillRect(x, y, 1, 1)
+            }else{
+                ctx.fillStyle = "white"
                 ctx.fillRect(x, y, 1, 1)
             }
     }
     }
+    console.log($("#mirrorButton").is(':checked'));
     if($("#mirrorButton").is(':checked')) mirror()
 }

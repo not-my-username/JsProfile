@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,87 @@
     <script src="./mirror.js"></script>
     <script src="streaks.js"></script>
     <title>Document</title>
+    <style>
+        .main {
+            margin-left: auto;
+            margin-right: auto;
+            width: 30%;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(213, 213, 213);
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+        .canvas {
+            width: 100px;
+            height: 100px;
+            image-rendering: crisp-edges;
+            border: 20px solid white;
+            background-color: white;
+            border-radius: 25px;
+        }
+        .button { 
+            background-color: white;
+            width: 300px ; 
+            margin: 5px;
+            padding: 10px;
+            border-radius: 25px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 15px;
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+            border: 2px solid rgb(197, 197, 197);
+            transition: 100ms;
+        }
+        .button:hover {
+            background-color: rgb(232, 232, 232);
+        }
+        .input {
+            background-color: white;
+            width: 300px ; 
+            margin: 5px;
+            padding: 10px;
+            border-radius: 25px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 15px;
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+            border: 2px solid rgb(197, 197, 197);
+            transition: 100ms;
+        }
+    </style>
 </head>
+
 <body>
-    <canvas id="canvas" width="10" height="10" style="width:100px;height:100px;  image-rendering: crisp-edges;"></canvas>
-    <input type="text" id="name" placeholder="Name" oninput="updateLive ? gen() : false">
-    <button onclick="streaks();gen = streaks" >Streaks</button>
-    <label for="mirrorButton">Mirror: </label>
-    <input type="checkbox" id="mirrorButton" oninput="$(this).is(':checked') ? mirror() : gen();">
-    <label for="liveButton">Update Live:</label>
-    <input type="checkbox" id="liveButton" oninput="updateLive = $(this).is(':checked')">
+    <div class="main">
+        <h1>JsProfile</h1>
+        <h4>A procidual profile picture genarator</h4>
+        <canvas id="canvas" width="10" height="10" class="canvas"></canvas>
+        <br><br>
+        <input type="text" id="name" placeholder="Name" oninput="updateLive ? gen() : false">
+        <br><br>
+        <button onclick="gen()" class="button">Generate</button>
+        <br><br>
+        <label for="mirrorButton" class="button">Mirror:
+            <input type="checkbox" id="mirrorButton" oninput="$(this).is(':checked') ? mirror() : gen();"> 
+        </label>
+        <label for="liveButton" class="button">Update Live: 
+            <input type="checkbox" id="liveButton" oninput="updateLive = $(this).is(':checked')">
+        </label>
+        <br><br><br>
+        <label for="offsetSlider" class="button">Offset
+            <input type="range" id="offsetSlider" min="0" max="20" value="0"
+            oninput="offset = parseInt(this.value);updateLive ? gen() : false" style="    vertical-align:middle;">
+        </label>
+ 
+        <br><br>
+
+    </div>
 </body>
+
 </html>
