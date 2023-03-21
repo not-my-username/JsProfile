@@ -1,3 +1,3 @@
 # JsProfile
 
-This is a collection of profile photo genarators made in JS, The output of this is procedural, if you input the same name you get the same output 
+This is a profile picture genarator made in JS, The output of this is procedural, If you input the same name you get the same output.
