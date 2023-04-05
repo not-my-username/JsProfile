@@ -1,8 +1,10 @@
+//setup canvas
+size = 10
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
 function mirror() {
-    size = 10
-    var c = document.getElementById("canvas");
-    var ctx = c.getContext("2d");
 
+    //take the pixel on the opside side and copy it over to mirror the image
     for (let x = 0; x<size+1;x++){
         for (let y = 0; y<size;y++){
             for(let z = 0; z+4<size;z++){
