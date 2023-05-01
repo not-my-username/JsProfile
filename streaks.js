@@ -1,15 +1,16 @@
+//canvas setup
 var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
-offset = 0
+var offset = 0
 
 function gen() {
     //setup base variables 
-    size = 10
-    name = $("#name").val()
-    x = 0
-    asciiName = []
+    size = 10 // the size of the outputed image
+    name = $("#name").val() // the name inputted
 
     //obtain a list containing the ascii code for each letter in name
+    x = 0
+    asciiName = []
     name.split("").forEach(e => {
         asciiName.push(e.charCodeAt(0))
         //genatates a number that is the sum of all the ascii codes
@@ -33,9 +34,10 @@ function gen() {
     ctx.fillStyle = `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`
 
 
-    //loop through all pixels in the canvas and draw a pixel if the ascii code of the name at the index ((x+y) + offset) % length is divisible by three
+    //loop through all pixels in the canvas
     for (let x = 0; x < size; x++) {
         for (let y = 0; y < size; y++) {
+            //draw a pixel if the ascii code of the name at the index ((x+y) + offset) % length is divisible by three
             if (asciiName[((x+y) + offset)%l] % 3 == 0) {
                 ctx.fillStyle = `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`
                 ctx.fillRect(x, y, 1, 1)
@@ -46,5 +48,5 @@ function gen() {
     }
     }
     //mirror the image if enabled 
-    if($("#mirrorButton").is(':checked')) mirror()
+    if($("#mirrorButton").is(':checked')) mirror(size)
 }
