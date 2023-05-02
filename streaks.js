@@ -1,8 +1,3 @@
-//canvas setup
-var c = document.getElementById("canvas");
-var ctx = c.getContext("2d");
-var offset = 0
-
 function gen() {
     //setup base variables 
     size = 10 // the size of the outputed image
@@ -48,5 +43,20 @@ function gen() {
     }
     }
     //mirror the image if enabled 
-    if($("#mirrorButton").is(':checked')) mirror(size)
+    if(is_mirror) mirror(size)
 }
+
+$(document).ready(function() {
+    //canvas setup
+    updateLive = true
+    c = $("#canvas");
+    ctx = c[0].getContext("2d");
+    offset = 0
+    is_mirror = false
+    updateLive = true
+})
+
+$("#mirror").on("input", function (e) {
+    console.log("Mirror Checked");
+    is_mirror = e.target.checked
+})
