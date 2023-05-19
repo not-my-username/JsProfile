@@ -54,9 +54,10 @@ $(document).ready(function() {
     offset = 0
     is_mirror = false
     updateLive = true
+
+    $("#mirror").on("input", function (e) {
+        console.log("Mirror Checked");
+        is_mirror = e.target.checked
+    })
 })
 
-$("#mirror").on("input", function (e) {
-    console.log("Mirror Checked");
-    is_mirror = e.target.checked
-})
